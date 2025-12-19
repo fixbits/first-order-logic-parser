@@ -56,7 +56,20 @@ object StringUtil:
   /** Punctuation characters */
   val punctuation: Char => Boolean = matches("()[]{}.,;")
   
-  /** Symbolic operator characters */
+  /** Symbolic operator characters 
+    * 
+    * TODO: OVERLAP ISSUE - The characters . , ; appear in BOTH symbolic and punctuation!
+    * This causes them to be treated as symbolic (checked first in lexer), allowing
+    * multi-char tokens like "..." or ",,," instead of individual tokens.
+    * 
+    * Consider removing . , ; from symbolic to make them single-char only:
+    *   val symbolic = matches("~`!@#$%^&*-+=|\\:<>?/")
+    * 
+    * This would ensure:
+    *   - "forall x. P(x)" tokenizes . correctly
+    *   - "f(x, y)" keeps , as single token
+    *   - Statements ending with ; stay single-char
+    */
   val symbolic: Char => Boolean = matches("~`!@#$%^&*-+=|\\:;<>.?/")
   
   /** Numeric digit characters */
