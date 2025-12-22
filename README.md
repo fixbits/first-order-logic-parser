@@ -76,7 +76,8 @@ src/main/scala/
 ├── printer/
 │   └── FOLPrinter.scala    # Pretty printer
 └── semantics/
-## Educational Value
+
+src/test/scala/             # Comprehensive test suite (195+ tests)
 
 This project demonstrates:
 - **OCaml to Scala translation** patterns
@@ -87,13 +88,7 @@ This project demonstrates:
 - **Variable capture avoidance** in substitution
 - **Tarski semantics** for first-order logic
 - **Model theory** implementation
-    ├── SimpleExpr.scala    # Example: arithmetic expression parser
-    ├── FormulaParser.scala # Generic formula parser
-    ├── TermParser.scala    # FOL term parser
-    ├── FOLAtomParser.scala # FOL atom parser
-    └── FOLParser.scala     # Public API
 
-src/test/scala/             # Comprehensive test suite (195+ tests)
 ```
 
 ## Implementation Phases
